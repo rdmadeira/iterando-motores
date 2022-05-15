@@ -92,6 +92,7 @@
 body {
     font-family: var(--header-font);
     width: 100vw;
+    overflow-x: hidden;
 }
 
 ul {
@@ -225,6 +226,25 @@ ul {
 .hero-section__img-div img {
     height: 97%;
     
+}
+
+.section__div-marcas-main {
+    width: 100%;
+    background: var(--shark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div-marcas__ctn-logos {
+    width: 54%;
+    display: flex;
+    column-gap: 2vw;
+    padding: 2vw 4vw;
+}
+
+.ctn-logos__ctn-img {
+    display: flex;
 }
 
 @media screen and (max-width:500px), screen and (max-aspect-ratio: 5/6) {
