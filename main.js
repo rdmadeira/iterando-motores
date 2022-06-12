@@ -66,12 +66,36 @@ El desafío será crear las siguientes funciones:
         for(key in stockMarcas){ 
             let lista = document.createElement('li');
             usados.appendChild(lista);
-            lista.setAttribute('class','usados__li')
+            lista.setAttribute('class','usados__li');
+            lista.setAttribute('id', key)
             lista.innerHTML = key;
-            
+            lista.addEventListener('click', () => appearDivStock(lista.getAttribute('id')));
         }
-        // document.getElementsByClassName('usados__li').addEventListener('click', divStock(this.innerHTML));
-        
+                
+        let divStock = document.createElement('div');
+        function appearDivStock(name){
+            let modelosDisp = {marca: name, modelo: [], año: [], colores: []};
+            let respuesta = '';
+            stock.forEach( item => {
+                if(item.marca == name){
+                    modelosDisp.modelo.push(item.modelo);
+                    modelosDisp.año.push(item.año);
+                    modelosDisp.colores.push(item.colores);
+                    respuesta += `${name} ${item.modelo}, año ${item.año}, color ${item.colores.join(' o ')}. `
+                }   
+            });
+            divStock.innerHTML = respuesta;
+            divStock.setAttribute('class', 'newStockDiv');
+            document.getElementsByClassName('hero-section')[0].appendChild(divStock);
+            divStock.innerHTML = '<div><p>' + respuesta + '</p></div>';
+            setTimeout(() => {
+                divStock.setAttribute('class', divStock.getAttribute('class') + ' visible');
+                
+            }, 200);
+            divStock.addEventListener('click',()=> divStock.setAttribute('class', 'newStockDiv'));
+            // alert(respuesta)
+            return respuesta
+            }
             
         
     }
@@ -83,7 +107,7 @@ El desafío será crear las siguientes funciones:
         const itemMasNuevo = stockUpOrd[0];
         console.log(`El modelo más nuevo es el ${itemMasNuevo.marca} ${itemMasNuevo.modelo} año ${itemMasNuevo.año}`);
     }
-    //masNuevo();
+    // masNuevo();
 
     const masAntiguo = () => {
         let stockUpOrd = stock.slice();
@@ -91,7 +115,9 @@ El desafío será crear las siguientes funciones:
         const itemMasNuevo = stockUpOrd[0];
         console.log(`El modelo más nuevo es el ${itemMasNuevo.marca} ${itemMasNuevo.modelo} año ${itemMasNuevo.año}`);
     }
-    //masAntiguo();
+    // masAntiguo();
+
+
 
 
 }

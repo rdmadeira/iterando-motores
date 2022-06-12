@@ -19,7 +19,7 @@
     --chestnut-rose: #c8684b;
     --corduroy: #5c746c;
     --del-rio: #aa978c;
-    --gray: #83888c;
+    --gray: rgb(131, 136, 140);
 }
 
 :root {
@@ -246,6 +246,31 @@ ul {
 
 .ctn-logos__ctn-img {
     display: flex;
+}
+
+.newStockDiv {
+    position: absolute;
+    width: 70%;
+    top: 10%;
+    left: calc(100vw - 85%);
+    background-color: rgba(131, 136, 140, 0.8);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: double var(--shark);
+    border-radius: 10px;
+    padding: 5vw 10vw;
+    height: 40vh;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.8s all ease-out;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s all ease-out;
 }
 
 @media screen and (max-width:500px), screen and (max-aspect-ratio: 5/6) {
